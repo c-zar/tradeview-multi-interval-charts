@@ -19,7 +19,11 @@
 
 	function initWidget() {
 		if (typeof TradingView !== 'undefined') {
+			const element = document.getElementById(CONTAINER_ID);
 			widg.widget = new window.TradingView.widget(Object.assign({ container_id: CONTAINER_ID }, options));
+			// widg.widget.ready(function () {
+			// 	console.log(JSON.stringify(widg.widget.getSymbolInfo(), null, 4));
+			// });
 		}
 	}
 
@@ -45,10 +49,4 @@
 	$: autosize = options.autosize;
 </script>
 
-<!-- <div id={CONTAINER_ID} class:autosize /> -->
-<!-- <style>
-	.autosize {
-		width: 100%;
-		height: 100%;
-	}
-</style> -->
+<!-- {@debug widg} -->
